@@ -105,5 +105,7 @@ int			read_tetriminos(int fd, t_env *env)
 			return (1);
 	}
 	env->n_tetriminos = i;
+	if (i == 26 && read(fd, &line_jump, 1) != 0)
+		return (1);
 	return (0);
 }
