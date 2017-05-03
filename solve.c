@@ -15,7 +15,7 @@
 static inline int	find_next_spot(t_coord *dim, __uint128_t *board,
 									__uint128_t *tetri, int *pos)
 {
-	int			overlap;
+	__uint128_t	overlap;
 
 	(*pos)++;
 	while (*pos / 11 <= dim->i)
@@ -56,11 +56,9 @@ static int			solve_recursive(t_env *env, __uint128_t *board, int placed)
 	while (find_next_spot(&dim, board, &tetri_bin, &pos))
 	{
 		place_or_remove_tetrimino(board, &tetri_bin, pos);
+		tl[placed].pos = pos;
 		if (solve_recursive(env, board, placed + 1))
-		{
-			tl[placed].pos = pos;
 			return (1);
-		}
 		place_or_remove_tetrimino(board, &tetri_bin, pos);
 	}
 	return (0);

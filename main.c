@@ -42,9 +42,7 @@ static void	print_board(t_env *env)
 {
 	char		board[env->a * env->a];
 	int			i_tetri;
-	int			i_block;
 	int			i;
-	int			j;
 	t_tetrimino	*t;
 
 	i = 0;
@@ -53,13 +51,12 @@ static void	print_board(t_env *env)
 	i_tetri = -1;
 	while (++i_tetri < env->n_tetriminos)
 	{
-		i_block = -1;
-		while (++i_block < 4)
+		i = -1;
+		t = env->tetri_list + i_tetri;
+		while (++i < 4)
 		{
-			t = env->tetri_list + i_tetri;
-			i = t->pos / 11 + t->c[i_block].i;
-			j = t->pos % 11 + t->c[i_block].j;
-			board[i * env->a + j] = 'A' + i_tetri;
+			board[(t->pos / 11 + t->c[i].i) * env->a
+					+ (t->pos % 11 + t->c[i].j)] = 'A' + i_tetri;
 		}
 	}
 	i = -1;
