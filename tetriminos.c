@@ -6,7 +6,7 @@
 /*   By: stoupin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/28 17:32:56 by stoupin           #+#    #+#             */
-/*   Updated: 2017/04/28 17:34:36 by stoupin          ###   ########.fr       */
+/*   Updated: 2017/05/03 11:14:38 by stoupin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	move_to_topleft_calculate_dim(t_tetrimino *t)
 	int		n;
 	t_coord	c_topleft;
 	t_coord	c_bottomright;
-	
+
 	c_topleft = coordinates(4, 4);
 	c_bottomright = coordinates(-1, -1);
 	n = 0;
@@ -64,7 +64,7 @@ static void	calculate_binary_representation(t_tetrimino *t)
 	int			n;
 	__uint128_t	one;
 	int			pos;
-	
+
 	t->bin = 0;
 	one = 1;
 	n = 0;

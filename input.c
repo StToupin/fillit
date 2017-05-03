@@ -36,7 +36,7 @@ static int	parse_tetrimino(char array[4][4], t_tetrimino *tetri)
 	int i;
 	int j;
 	int n;
-	
+
 	n = 0;
 	i = 0;
 	while (i < 4)
@@ -83,7 +83,7 @@ static int	read_tetrimino(int fd, t_tetrimino *tetri)
 	return (parse_tetrimino(array, tetri));
 }
 
-int	read_tetriminos(int fd, t_env *env)
+int			read_tetriminos(int fd, t_env *env)
 {
 	int		i;
 	int		err;

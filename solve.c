@@ -6,7 +6,7 @@
 /*   By: stoupin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/13 18:37:42 by stoupin           #+#    #+#             */
-/*   Updated: 2017/04/24 11:00:54 by stoupin          ###   ########.fr       */
+/*   Updated: 2017/05/03 11:14:28 by stoupin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,13 @@ static inline int	find_next_spot(t_coord *dim, __uint128_t *board,
 	return (0);
 }
 
-static inline void	place_or_remove_tetrimino(__uint128_t *board, __uint128_t *tetri, int pos)
+static inline void	place_or_remove_tetrimino(__uint128_t *board,
+												__uint128_t *tetri, int pos)
 {
 	*board ^= (*tetri << pos);
 }
 
-static int	solve_recursive(t_env *env, __uint128_t *board, int placed)
+static int			solve_recursive(t_env *env, __uint128_t *board, int placed)
 {
 	int			pos;
 	__uint128_t	tetri_bin;
@@ -65,7 +66,7 @@ static int	solve_recursive(t_env *env, __uint128_t *board, int placed)
 	return (0);
 }
 
-int	solve(t_env *env)
+int					solve(t_env *env)
 {
 	__uint128_t	board;
 	int			solution_found;

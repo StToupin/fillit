@@ -6,7 +6,7 @@
 /*   By: stoupin <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/28 17:29:10 by stoupin           #+#    #+#             */
-/*   Updated: 2017/04/28 17:34:37 by stoupin          ###   ########.fr       */
+/*   Updated: 2017/05/03 11:14:44 by stoupin          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int				read_tetriminos(int fd, t_env *env);
 /*
 ** From coordinates.c
 */
-					
+
 t_coord			coordinates(int i, int j);
 void			coord_minmax(t_coord *c_min, t_coord *c_max, t_coord c_new);
 int				is_next_to(t_coord *a, t_coord *b);
@@ -60,6 +60,6 @@ int				preprocess_tetriminos(t_env *env);
 ** From solve.c
 */
 
-int	solve(t_env *env);
+int				solve(t_env *env);
 
 #endif
