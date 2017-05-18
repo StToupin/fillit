@@ -48,7 +48,6 @@ int				read_tetriminos(int fd, t_env *env);
 t_coord			coordinates(int i, int j);
 void			coord_minmax(t_coord *c_min, t_coord *c_max, t_coord c_new);
 int				is_next_to(t_coord *a, t_coord *b);
-int				equal_coords(t_coord c1, t_coord c2);
 
 /*
 ** From tetriminos.c

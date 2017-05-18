@@ -43,20 +43,23 @@ static int			solve_recursive(t_env *env, __uint128_t *board, int placed)
 	int			pos;
 	__uint128_t	tetri_bin;
 	t_coord		dim;
-	t_tetrimino	*tl;
+	t_tetrimino	*tetri_list;
 
 	if (placed == env->n_tetriminos)
 		return (1);
-	tl = env->tetri_list;
-	tetri_bin = tl[placed].bin;
+	tetri_list = env->tetri_list;
+	tetri_bin = tetri_list[placed].bin;
 	pos = -1;
-	if (tl[placed].identical >= 0)
-		pos = tl[tl[placed].identical].pos;
-	dim = coordinates(env->a - tl[placed].dim.i, env->a - tl[placed].dim.j);
+	if (tetri_list[placed].identical >= 0)
+	{
+		pos = tetri_list[tetri_list[placed].identical].pos;
+	}
+	dim = coordinates(env->a - tetri_list[placed].dim.i,
+						env->a - tetri_list[placed].dim.j);
 	while (find_next_spot(&dim, board, &tetri_bin, &pos))
 	{
 		place_or_remove_tetrimino(board, &tetri_bin, pos);
-		tl[placed].pos = pos;
+		tetri_list[placed].pos = pos;
 		if (solve_recursive(env, board, placed + 1))
 			return (1);
 		place_or_remove_tetrimino(board, &tetri_bin, pos);

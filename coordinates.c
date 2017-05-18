@@ -45,8 +45,3 @@ int			is_next_to(t_coord *a, t_coord *b)
 		return (1);
 	return (0);
 }
-
-int			equal_coords(t_coord c1, t_coord c2)
-{
-	return (c1.i == c2.i && c1.j == c2.j);
-}

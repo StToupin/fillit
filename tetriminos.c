@@ -20,9 +20,10 @@ static void	move_to_topleft_calculate_dim(t_tetrimino *t)
 
 	c_topleft = coordinates(4, 4);
 	c_bottomright = coordinates(-1, -1);
-	n = 0;
-	while (n < 4)
-		coord_minmax(&c_topleft, &c_bottomright, t->c[n++]);
+	coord_minmax(&c_topleft, &c_bottomright, t->c[0]);
+	coord_minmax(&c_topleft, &c_bottomright, t->c[1]);
+	coord_minmax(&c_topleft, &c_bottomright, t->c[2]);
+	coord_minmax(&c_topleft, &c_bottomright, t->c[3]);
 	t->dim.i = c_bottomright.i - c_topleft.i + 1;
 	t->dim.j = c_bottomright.j - c_topleft.j + 1;
 	n = 0;
@@ -76,14 +77,6 @@ static void	calculate_binary_representation(t_tetrimino *t)
 	}
 }
 
-static int	equal_tetriminos(t_tetrimino *t1, t_tetrimino *t2)
-{
-	return (equal_coords(t1->c[0], t2->c[0])
-			&& equal_coords(t1->c[1], t2->c[1])
-			&& equal_coords(t1->c[2], t2->c[2])
-			&& equal_coords(t1->c[3], t2->c[3]));
-}
-
 int			preprocess_tetriminos(t_env *env)
 {
 	int			a;
@@ -102,7 +95,7 @@ int			preprocess_tetriminos(t_env *env)
 		b = 0;
 		while (b < a)
 		{
-			if (equal_tetriminos(env->tetri_list + a, env->tetri_list + b))
+			if (env->tetri_list[a].bin == env->tetri_list[b].bin)
 				t->identical = b;
 			b++;
 		}
