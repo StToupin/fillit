@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 
 NAME = fillit
 
@@ -24,3 +24,5 @@ re: fclean all
 
 norminette:
 	norminette fillit.h $(SRC)
+
+.PHONY: all clean fclean re norminette
