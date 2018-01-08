@@ -54,8 +54,8 @@ static int			solve_recursive(t_env *env, __uint128_t *board, int placed)
 	{
 		pos = tetri_list[tetri_list[placed].identical].pos;
 	}
-	dim = coordinates(env->a - tetri_list[placed].dim.i,
-						env->a - tetri_list[placed].dim.j);
+	dim = (t_coord){env->a - tetri_list[placed].dim.i,
+						env->a - tetri_list[placed].dim.j};
 	while (find_next_spot(&dim, board, &tetri_bin, &pos))
 	{
 		place_or_remove_tetrimino(board, &tetri_bin, pos);
